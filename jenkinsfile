@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Fetch File') {
+            steps {
+                git 'https://github.com/JitendraSies/javarep.git'
+            }
+        }
+        stage('Building') {
+            steps {
+                echo 'Building Project _________'
+                bat 'javac test1.java'
+            }
+        }
+        stage('Executing ') {
+            steps {
+                echo 'Execution under progress ________'
+                bat 'java test1'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying __________'
+            }
+        }
+    }
+    post {
+        success {
+            echo "Pipeline executed successfully."
+        }
+        failure {
+            echo "Pipeline Failed"
+        }
+    }
+}
