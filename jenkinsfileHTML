@@ -9,9 +9,9 @@ pipeline {
         stage ('Publish') {
             steps {
                 publishHTML ([
-                    allowmissing: true,
-                    alwaysLinktoLastBuild: false,
-                    KeepAll: false,
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: false,
                     reportDir: '.',
                     reportFiles: 'file1.html',
                     reportName: 'My HTML Page'
