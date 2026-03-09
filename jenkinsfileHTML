@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage ('Checkout') {
+            steps {
+                git 'https://github.com/JitendraSies/javarep.git'
+            }
+        }
+        stage ('Publish') {
+            steps {
+                publishHTML ([
+                    allowmissing: true,
+                    alwaysLinktoLastBuild: false,
+                    KeepAll: false,
+                    reportDir: '.',
+                    reportFiles: 'file1.html',
+                    reportName: 'My HTML Page'
+                ])
+            }
+        }
+    }
+}
